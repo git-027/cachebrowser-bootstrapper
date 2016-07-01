@@ -1,0 +1,19 @@
+.ui.top.menu.secondary
+    .ui.category.search.item
+        .ui.transparent.icon.input
+            input.prompt(type="text" placeholder="Search...")
+            i.search.link.icon
+    .right.menu
+        a.item(href="#/cdn/add")
+            i.plus.icon 
+            | Add CDN
+table.ui.selectable.compact.table
+    thead
+        tr
+            th CDN Name
+            th.center.aligned Include SNI
+    tbody
+        tr(ng-repeat="cdn in cdns")
+            td {{cdn.name}}
+            th.center.aligned
+                i.large.green.checkmark.icon(ng-if="cdn.sni")

@@ -1,0 +1,23 @@
+h2  Add Host
+
+form.ui.form(ng-submit="submitForm()")    
+    .field(ng-class="fieldErrors.hostname ? 'error' : ''")
+        label Hostname
+        input(type="text", ng-model="form.hostname", placeholder="e.g. static.bbc.com")
+    .field(ng-class="fieldErrors.cdn ? 'error' : ''")
+        label CDN
+        input(type="text", ng-model="form.cdn")
+    
+    .ui.segment
+        .field
+            .ui.toggle.checkbox(checkbox)
+                input.hidden(type="checkbox", ng-model="form.ssl")
+                label Use SSL for this host
+        
+    button.ui.button Add Host
+.ui.message(class="error", ng-if="errors.length")
+    ul.list
+        li(ng-repeat="error in errors") {{error.detail}}
+.ui.message(ng-if="message", ng-class="message.class") {{message.text}}
+            
+    

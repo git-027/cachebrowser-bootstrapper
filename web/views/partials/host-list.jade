@@ -1,0 +1,21 @@
+.ui.top.menu.secondary
+    .ui.category.search.item
+        .ui.transparent.icon.input
+            input.prompt(type="text" ng-model="params.query" placeholder="Search...")
+            i.search.link.icon
+    .right.menu
+        a.item(href="#/hosts/add")
+            i.plus.icon 
+            | Add Host
+table.ui.selectable.compact.table
+    thead
+        tr
+            th Domain
+            th CDN
+            th.center.aligned Supports SSL
+    tbody
+        tr(ng-repeat="host in hosts")
+            td {{host.hostname}}
+            td {{host.cdn}}
+            th.center.aligned
+                i.large.green.checkmark.icon(ng-if="host.ssl")

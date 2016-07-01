@@ -1,0 +1,39 @@
+h2  Add CDN
+
+form.ui.form(ng-submit="submitForm()")
+    .fields
+        .field.ten.wide(ng-class="fieldErrors.name ? 'error' : ''")
+            label CDN Name
+            input(type="text", ng-model="form.name", placeholder="e.g.  Amazon Cloudfront")
+        .field.six.right.wide(ng-class="fieldErrors.id ? 'error' : ''")
+            label CDN ID 
+            input(type="text", ng-model="form.id", placeholder="e.g.  cloudfront")
+    
+    .field.six.wide
+        label Edge Servers
+        input(type="text" placeholder="e.g.  23.129.40.32" ng-repeat="(i,edge) in form.edges track by $index" ng-model="form.edges[i]"
+        style="margin-bottom: 0.5em")
+    
+    .grouped.fields
+        label SNI Policy
+        .field
+            .ui.radio.checkbox(ng-click="form.sni='original'")
+                input.hidden(type="radio" name="sni" value="original" checked="checked")
+                label Use original SNI without change
+        .field
+            .ui.radio.checkbox(ng-click="form.sni='remove'")
+                input.hidden(type="radio" name="sni" value="remove")
+                label Remove SNI
+        .field
+            .ui.radio.checkbox(ng-click="form.sni='front'")
+                input.hidden(type="radio" name="sni" value="front")
+                label Use alternate SNI
+        .field(ng-if="form.sni=='front'")
+            input(type="text", name="id", placeholder="e.g.  cloudfront")
+        
+    button.ui.button Add CDN
+.ui.message(class="error", ng-if="errors.length")
+    ul.list
+        li(ng-repeat="error in errors") {{error.detail}}
+.ui.message(ng-if="message", ng-class="message.class") {{message.text}}
+    
