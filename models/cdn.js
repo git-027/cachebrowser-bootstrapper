@@ -5,7 +5,8 @@ var CDNSchema = new Schema({
     name: {type: String, default: '', required: true, trim: true},
     _id: {type: String, default: '', required: true, trim: true},
     edges: [{type: String, default: '', trim: true}],
-    fronts: [{type: String, default: '', trim: true}]
+    fronts: [{type: String, default: '', trim: true}],
+    sni_policy: {type: String, default: null, required: false}
 });
 
 CDNSchema.virtual('id').get(function() {

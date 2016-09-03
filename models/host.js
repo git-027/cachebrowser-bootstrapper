@@ -7,6 +7,7 @@ var HostSchema = new Schema({
     has_pattern: {type: Boolean, default: false, required: true},
     cdn: {type: String, ref: 'CDN'},
     fronts: [{type: String, default: ''}],
+    sni_policy: {type: String, default=null, required: false},
     ssl: {type: Boolean, default: true}
 });
 
