@@ -1,14 +1,14 @@
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    cssnano = require('gulp-cssnano'),
-    // jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    del = require('del');
+  sass = require('gulp-ruby-sass'),
+  autoprefixer = require('gulp-autoprefixer'),
+  cssnano = require('gulp-cssnano'),
+  // jshint = require('gulp-jshint'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+  concat = require('gulp-concat'),
+  notify = require('gulp-notify'),
+  cache = require('gulp-cache'),
+  del = require('del');
 
 gulp.task('styles', function() {
   return sass('src/styles/main.scss', { style: 'expanded' })
@@ -33,11 +33,11 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('clean', function() {
-    return del(['public/styles', 'public/javascripts']);
+  return del(['public/styles', 'public/javascripts']);
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts');
+  gulp.start('styles', 'scripts');
 });
 
 gulp.task('watch', function() {

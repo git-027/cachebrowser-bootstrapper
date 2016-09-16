@@ -15,16 +15,16 @@ router.get('/cdns', cdn.searchCDN);
 router.get('/cdns/:cdnId', cdn.getCDN);
 
 router.use(function(err, req, res, next) {
-    console.log(err)
-    if (!Array.isArray(err)) {
-        err = [err];
-    }
+  console.log(err)
+  if (!Array.isArray(err)) {
+    err = [err];
+  }
 
-    res.status(err[0].status || 500);
+  res.status(err[0].status || 500);
 
-    res.json({
-        errors: err
-    })
+  res.json({
+    errors: err
+  })
 });
 
 module.exports = router;
