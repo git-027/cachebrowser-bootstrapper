@@ -19,4 +19,8 @@ CDNSchema.set('toJSON', {
   virtuals: true
 });
 
+CDNSchema.set('toObject', {
+  virtuals: true
+});
+
 mongoose.model('CDN', CDNSchema)

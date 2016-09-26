@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var HostSchema = new Schema({
-  hostname: {type: String, default: '', required: true, trim: true},
+  hostname: {type: String, default: '', required: true, unique: true, trim: true},
   main_domain: {type: String, default: '', required: true, trim: true},
   has_pattern: {type: Boolean, default: false, required: true},
   cdn: {type: String, ref: 'CDN'},
